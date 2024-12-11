@@ -21,21 +21,35 @@
 
 // removeDups([1, 1, 1, 2, 2, 3, 3, 3]);
 
+// function removeDups(arr) {
+//   let i = 0,
+//     index = 0,
+//     n = arr.length;
+
+//   while (i < n) {
+//     arr[index] = arr[i];
+//     index++;
+
+//     while (i < n && arr[index - 1] == arr[i]) {
+//       i++;
+//     }
+//   }
+
+//   return index;
+// }
+
 function removeDups(arr) {
-  let i = 0,
-    index = 0,
-    n = arr.length;
+  const n = arr.length;
 
-  while (i < n) {
-    arr[index] = arr[i];
-    index++;
+  let i = 0;
 
-    while (i < n && arr[index - 1] == arr[i]) {
+  for (let j = 1; j < n; j++) {
+    if (arr[i] !== arr[j]) {
+      arr[i + 1] = arr[j];
       i++;
     }
   }
-
-  return index;
+  console.log(arr, i + 1);
 }
 
 removeDups([1, 1, 1, 2, 2, 3, 3, 3]);
